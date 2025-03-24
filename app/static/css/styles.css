@@ -1,19 +1,20 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #010409;
 }
 
 header {
-    background: #35424a;
+    background: #212529;
     color: #ffffff;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
 }
 
 h1 {
     margin: 0;
+    font-size: 24px;
 }
 
 .container {
@@ -22,28 +23,78 @@ h1 {
     overflow: hidden;
 }
 
+.form-control {
+    background-color: #29903b;
+    border: px solid #28a745;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: #29903b;
+    border-color: #29903b;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #218838;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #1e7e34;
+}
+
+
 footer {
-    background: #35424a;
+    background: #212529;
     color: #ffffff;
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
     bottom: 0;
     width: 100%;
 }
 
-.button {
-    display: inline-block;
-    font-size: 18px;
-    color: #ffffff;
-    background: #e8491d;
+button.btn-primary {
+    background: #007bff;
+    border: none;
     padding: 10px 20px;
-    text-decoration: none;
+    font-size: 18px;
     border-radius: 5px;
+    transition: background 0.3s;
 }
 
-.button:hover {
-    background: #333;
+button.btn-primary:hover {
+    background: #0056b3;
 }
 
-/* Add your CSS styles here */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background: #007bff;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-footer {
+    border-radius: 0 0 10px 10px;
+}

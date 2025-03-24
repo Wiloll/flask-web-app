@@ -6,14 +6,10 @@ main = Blueprint('main', __name__)
 
 # Ensure the upload folder exists
 
-@main.route('/')
-def home():
-    return "Welcome to the Flask Web App!"
-
 @main.route('/about')
 def about():
     return render_template('about.html')
 
-@main.route('/scan')
+@main.route('/')
 def scan():
     return render_template('base.html')

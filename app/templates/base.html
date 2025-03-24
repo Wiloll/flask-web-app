@@ -1,21 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antivirus Scanner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script>
         function showResult(result) {
-            alert("Analysis Result: " + result);
+            document.getElementById("result-text").innerText = result;
+            var resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+            resultModal.show();
         }
     </script>
 </head>
 <body>
-    <h1>Upload a File for Analysis</h1>
-    <form action="/analyze" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".exe,.dll,.sys,.scr,.drv,.efi,.acm,.ax,.mui,.tsp" required>
-        <button type="submit">Analyze</button>
-    </form>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Upload a File for Analysis</h1>
+    </header>
+    
+    <div class="container mt-5 text-center">
+        <form action="/analyze" method="post" enctype="multipart/form-data" class="p-4 shadow rounded bg-dark text-white">
+            <input type="file" class="form-control mb-3" name="file" accept=".exe,.dll,.sys,.scr,.drv,.efi,.acm,.ax,.mui,.tsp" required>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <p>&copy; 2025 Antivirus Scanner</p>
+    </footer>
+    
+    <!-- Modal for displaying the result -->
+    <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resultModalLabel">Analysis Result</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="result-text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     {% if trigger_js %}
     <script>
         showResult("{{ result }}");
