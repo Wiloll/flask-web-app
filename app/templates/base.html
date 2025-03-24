@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antivirus Scanner</title>
+    <script>
+        function showResult(result) {
+            alert("Analysis Result: " + result);
+        }
+    </script>
+</head>
+<body>
+    <h1>Upload a File for Analysis</h1>
+    <form action="/analyze" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".exe,.dll,.sys,.scr,.drv,.efi,.acm,.ax,.mui,.tsp" required>
+        <button type="submit">Analyze</button>
+    </form>
+    {% if trigger_js %}
+    <script>
+        showResult("{{ result }}");
+    </script>
+    {% endif %}
+</body>
+</html>
