@@ -16,6 +16,9 @@ app.register_blueprint(main)
 model = load_model("app/model.h5")
 scaler = joblib.load('app/scaler.pkl')
 
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 def extract_features_from_pe(file_path):
     try:
         pe = pefile.PE(file_path)
@@ -34,11 +37,11 @@ def extract_features_from_pe(file_path):
 def analyze_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file uploaded'}), 400
-
+    
     file = request.files['file']
-    file_path = os.path.join('uploads', file.filename)
-    if not os.path.exists(file.filename):
-        file.save(file_path)
+    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
+    
+    file.save(file_path)
 
     retries = 3
     for attempt in range(retries):
