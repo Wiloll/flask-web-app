@@ -13,8 +13,8 @@ app = Flask(__name__)
 app.register_blueprint(main)
 
 # Load the model and scaler
-model = load_model("D:/Github Repositores/flask-web-app/app/model.h5")
-scaler = joblib.load('D:/Github Repositores/flask-web-app/app/scaler.pkl')
+model = load_model("app/model.h5")
+scaler = joblib.load('app/scaler.pkl')
 
 def extract_features_from_pe(file_path):
     try:
