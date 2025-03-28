@@ -23,45 +23,6 @@ h1 {
     overflow: hidden;
 }
 
-.form-control {
-    background-color: #29903b;
-    border: px solid #28a745;
-    color: #ffffff;
-}
-
-.form-control:focus {
-    background-color: #29903b;
-    border-color: #29903b;
-    outline: none;
-    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
-}
-
-input[type="file"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-input[type="file"]::file-selector-button {
-    background-color: #218838;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-input[type="file"]::file-selector-button:hover {
-    background-color: #1e7e34;
-}
-
-
 footer {
     background: #212529;
     color: #ffffff;
